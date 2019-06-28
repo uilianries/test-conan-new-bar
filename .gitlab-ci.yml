@@ -2,13 +2,14 @@ image: conanio/gcc8:latest
 
 before_script:
   - pip install git+https://github.com/czoido/conan.git@feature/tqdm_output
-  
+
 run:
   script:
-    - conan install boost/1.69.0@conan/stable -r conan-center --build boost
-    - conan copy boost/1.69.0@conan/stable boost/1.69.0@ --all
     - conan_server &
-    - sleep 3
+    - wget https://github.com/conan-community/conan-boost/archive/release/1.70.0.zip
+    - unzip 1.70.0.zip
+    - cd conan-boost-release-1.70.0/
+    - conan create . demo/stable
     - conan remote add conan-local http://0.0.0.0:9300
     - conan user -r conan-local -p demo demo
-    - conan upload boost/1.69.0@demo/stable --all -r conan-local
+    - conan upload boost/1.70.0@demo/stable --all -r conan-local

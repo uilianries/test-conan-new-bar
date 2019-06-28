@@ -11,10 +11,7 @@ install:
 
 test_script:
   - ps: Start-Process conan_server -PassThru
-  - ps: Invoke-WebRequest https://github.com/pocoproject/conan-poco/archive/master.zip -OutFile master.zip
-  - 7z x master.zip
-  - cd conan-poco-master/
   - conan create . demo/stable
   - conan remote add conan-local http://0.0.0.0:9300
   - conan user -r conan-local -p demo demo
-  - conan upload Poco/1.9.0@demo/stable --all -r conan-local
+  - conan upload foo/0.1.0@demo/stable --all -r conan-local

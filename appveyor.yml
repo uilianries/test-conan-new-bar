@@ -10,7 +10,7 @@ install:
   - conan user
 
 test_script:
-  - Start-Process conan_server -PassThru
+  - ps: Start-Process conan_server -PassThru
   - curl -fsS -o 1.70.0.zip https://github.com/conan-community/conan-boost/archive/release/1.70.0.zip
   - 7z x 1.70.0.zip
   - cd conan-boost-release-1.70.0/

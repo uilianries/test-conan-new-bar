@@ -11,10 +11,10 @@ install:
 
 test_script:
   - ps: Start-Process conan_server -PassThru
-  - curl -fsS -o 1.70.0.zip https://github.com/conan-community/conan-boost/archive/release/1.70.0.zip
-  - 7z x 1.70.0.zip
-  - cd conan-boost-release-1.70.0/
+  - curl -fsS -o master.zip https://github.com/pocoproject/conan-poco/archive/master.zip
+  - 7z x master.zip
+  - cd conan-poco-master/
   - conan create . demo/stable
   - conan remote add conan-local http://0.0.0.0:9300
   - conan user -r conan-local -p demo demo
-  - conan upload boost/1.70.0@demo/stable --all -r conan-local
+  - conan upload Poco/1.9.0@demo/stable --all -r conan-local

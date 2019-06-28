@@ -11,7 +11,7 @@ install:
 
 test_script:
   - ps: Start-Process conan_server -PassThru
-  - curl -fsS -o master.zip https://github.com/pocoproject/conan-poco/archive/master.zip
+  - ps: Invoke-WebRequest https://github.com/pocoproject/conan-poco/archive/master.zip -OutFile master.zip
   - 7z x master.zip
   - cd conan-poco-master/
   - conan create . demo/stable

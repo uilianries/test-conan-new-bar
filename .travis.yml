@@ -1,0 +1,14 @@
+linux: &linux
+   os: linux
+   dist: xenial
+   language: python
+   python: "3.7"
+
+install:
+  - git+https://github.com/czoido/conan.git@feature/tqdm_output
+
+script:
+  - conan remote add upload_repo ${CONAN_REMOTE}
+  - conan user -r upload_repo ${CONAN_USERNAME}
+  - conan create . demo/stable
+  - conan upload foo/0.1.0@demo/stable --all --force -r upload_repo

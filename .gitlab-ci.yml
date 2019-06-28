@@ -2,7 +2,6 @@ image: conanio/gcc8:latest
 
 before_script:
   - pip install git+https://github.com/czoido/conan.git@feature/tqdm_output
-  - sudo apt-get -qq update && sudo apt-get install unzip -y --no-install-recommends
 
 run:
   script:

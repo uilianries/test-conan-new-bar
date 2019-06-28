@@ -5,7 +5,7 @@ linux: &linux
    python: "3.7"
 
 install:
-  - git+https://github.com/czoido/conan.git@feature/tqdm_output
+  - pip install git+https://github.com/czoido/conan.git@feature/tqdm_output
 
 script:
   - conan remote add upload_repo ${CONAN_REMOTE}

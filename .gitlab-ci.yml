@@ -1,0 +1,8 @@
+image: conanio/gcc8:latest
+
+before_script:
+  - pip install git+https://github.com/czoido/conan.git@feature/tqdm_output
+  
+run:
+  script:
+    - conan install boost/1.69.0@conan/stable

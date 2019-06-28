@@ -6,7 +6,7 @@ environment:
 
 install:
   - set PATH=%PATH%;%PYTHON%/Scripts/
-  - pip.exe install git+https://github.com/czoido/conan.git@feature/tqdm_output
+  - pip.exe install conan
   - conan user
 
 test_script:

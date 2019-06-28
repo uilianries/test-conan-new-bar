@@ -1,8 +1,7 @@
-linux: &linux
-   os: linux
-   dist: xenial
-   language: python
-   python: "3.7"
+os: linux
+dist: xenial
+language: python
+python: "3.7"
 
 install:
   - pip install git+https://github.com/czoido/conan.git@feature/tqdm_output

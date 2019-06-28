@@ -10,8 +10,7 @@ install:
   - conan user
 
 test_script:
-  - ps: Start-Process conan_server -PassThru
+  - conan remote add upload_repo %CONAN_REMOTE%
+  - conan user -r upload_repo %CONAN_USERNAME%
   - conan create . demo/stable
-  - conan remote add conan-local http://0.0.0.0:9300
-  - conan user -r conan-local -p demo demo
-  - conan upload foo/0.1.0@demo/stable --all -r conan-local
+  - conan upload foo/0.1.0@demo/stable --all --force -r upload_repo
